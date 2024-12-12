@@ -25,7 +25,14 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
-
+// API CORS configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("OtelApiCors", options =>
+    {
+        options.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod(); // Allow determination step
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -40,6 +47,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Activate configured CORS for the project
+app.UseCors("OtelApiCors");
 
 app.UseAuthorization();
 
