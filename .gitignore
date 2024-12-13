@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Exclude a directory
+Frontend/HotelProject.WebUI/wwwroot/** linguist-vendored
