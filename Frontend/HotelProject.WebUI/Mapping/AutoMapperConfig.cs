@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelProject.WebUI.Dtos.ServiceDto;
 using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.RegisterDto;
 
 
 namespace HotelProject.WebUI.Mapping
@@ -12,6 +13,8 @@ namespace HotelProject.WebUI.Mapping
             CreateMap<ResultServiceDto, Services>().ReverseMap();
             CreateMap<UpdateServiceDto, Services>().ReverseMap();
             CreateMap<CreateServiceDto, Services>().ReverseMap();
+
+            CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
         }
     }
 }
